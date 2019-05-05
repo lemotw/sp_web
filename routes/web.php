@@ -42,7 +42,16 @@ Route::Group(['prefix' => 'issue'], function(){
     Route::post('/reply/delete', 'IssueController@delete_reply')->name('delete_reply');
 });
 
+
 Route::Group(['prefix' => 'admin'], function(){
+    //Login without middleware
+    Route::get('/login', 'AdminController@show_login')->name('show_login');
+    Route::post('/login', 'AdminController@login')->name('login');
+});
+
+
+Route::Group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
+    //Guest can't access
     //issue manage section
     Route::get('/', 'AdminController@show_admin_panel')->name('show_admin_panel');
     Route::get('/delete', 'AdminController@show_delete_panel')->name('show_delete_panel');
@@ -53,10 +62,7 @@ Route::Group(['prefix' => 'admin'], function(){
     Route::get('/issue/reply_update/{id}', 'AdminController@show_reply_update')->name('show_reply_update');
 
     //Login section
-    Route::get('/login', 'AdminController@show_login')->name('show_login');
     Route::get('/register', 'AdminController@show_register')->name('show_register');
-
-    Route::post('/login', 'AdminController@login')->name('login');
     Route::post('/register', 'AdminController@register')->name('register');
 
 
