@@ -9,6 +9,14 @@
 	    <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
 		<noscript><link rel="stylesheet" href="{{ asset('assets/css/noscript.css') }}" /></noscript>
 	</head>
+
+	<style>
+		.issue_content {
+			height: 200px;
+			overflow: hidden;
+		}
+	</style>
+
 	<body class="landing is-preload">
 
 		<!-- Page Wrapper -->
@@ -28,8 +36,11 @@
 											<li><a href="/">首頁</a></li>
 											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH">法規編定</a></li>
 											<li><a href="#">預算公佈</a></li>
-											<li><a href="/issue">議題追蹤系統</a></li>
-											<li><a href="elements.html">團隊成員</a></li>
+											<li><a href="{{ route('show_all_issue') }}">議題追蹤系統</a></li>
+											<li><a href="{{ route('show_member') }}">團隊成員</a></li>
+											@if(Auth::check())
+											<li><a href="{{ route('show_admin_panel') }}">管理議題</a></li>
+											@endif
 											<!-- <li><a href="#">Sign Up</a></li>
 											<li><a href="#">Log In</a></li> -->
 										</ul>
@@ -67,22 +78,19 @@
 							<h2>議題追蹤</h2>
 						</header>
 						<ul class="features">
+
+							@foreach($issues as $issue)
 							<li class="icon fa-paper-plane-o">
-								<h3>Arcu accumsan</h3>
-								<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								<a href="/issue/id/{{ $issue->id }}">
+									<h3>{{ $issue->title }}</h3>
+									<div class="issue_content">
+										@php
+											echo $issue->describe;
+										@endphp
+									</div>
+								</a>
 							</li>
-							<li class="icon fa-laptop">
-								<h3>Ac Augue Eget</h3>
-								<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-							</li>
-							<li class="icon fa-code">
-								<h3>Mus Scelerisque</h3>
-								<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-							</li>
-							<li class="icon fa-headphones">
-								<h3>Mauris Imperdiet</h3>
-								<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-							</li>
+							@endforeach
 						</ul>
 					</div>
 				</section>
@@ -117,31 +125,31 @@
 				<!-- Two -->
 				<section id="two" class="wrapper alt style2">
 					<section class="spotlight">
-						<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
+						<div class="image"><img src="images/sr.jpg" alt="" /></div><div class="content">
 							<h2>學生權益委員會</h2>
 							<p>學生權益委員會，顧名思義就是為了學生權益發聲的地方，我們接受學生陳情，只要發現任何有損學生權益的問題，我們一定義不容辭跑遍相關處室進行詢問，比所有的學生更快了解最新資訊，替所有學生爭取權利。</p>
 						</div>
 					</section>
 					<section class="spotlight">
-						<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
+						<div class="image"><img src="images/design.jpg" alt="" /></div><div class="content">
 							<h2>編輯委員會</h2>
 							<p>編輯委員會的工作職掌比較內部，主要負責議會粉絲專業每周的更新 以及議會網站的經營。另外所有活動、貼文的文宣和相關周邊也都是由編委進行設計</p>
 						</div>
 					</section>
 					<section class="spotlight">
-						<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
+						<div class="image"><img src="images/fin.jpg" alt="" /></div><div class="content">
 							<h2>財務委員會</h2>
 							<p>財委委員會主要職責為監督學生會費使用與執行情況。在財務相關法規、制度上，會與財務委員會議員們進行討論，訂定出合適的法規及制度，以利於學生自治在財務上之健全。</p>
 						</div>
 					</section>
 					<section class="spotlight">
-						<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
+						<div class="image"><img src="images/law.jpg" alt="" /></div><div class="content">
 							<h2>法規暨紀錄獎逞委員會</h2>
 							<p>現在的法規暨紀律獎懲委員會是由委別總召、兩位秘書以及顧問組成，主要負責學生自治組織的法規制定與修改，出席率的規範與統計，發現有學生議員有違法事宜時的懲戒案收證與懲罰。</p>
 						</div>
 					</section>
 					<section class="spotlight">
-						<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
+						<div class="image"><img src="images/sec.jpg" alt="" /></div><div class="content">
 							<h2>秘書處</h2>
 							<p>祕書處功用就如同一間企業的祕書部般，看似不重要卻絕對不能沒有的部別，它扮演處理大小事務的角色，例如：會議資料整理及輸出、文書收發、開會地點安排、...等，主要目的莫過於讓議會可以運作的更加順利，讓議會可以發揮最大功效。</p>
 						</div>
@@ -153,12 +161,13 @@
 				<section id="cta" class="wrapper style4">
 					<div class="inner">
 						<header>
-							<h2>Arcue ut vel commodo</h2>
-							<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
+							<h2>聯絡我們</h2>
+							<p>議會信箱： nkustkuassp@nkust.edu.tw <br>
+							財務委員信箱： nkustspfc@nkust.edu.tw</p>
 						</header>
 						<ul class="actions stacked">
-							<li><a href="#" class="button fit primary">Activate</a></li>
-							<li><a href="#" class="button fit">Learn More</a></li>
+							<li><a href="{{ route('show_issue_add') }}" class="button fit primary">議題反應</a></li>
+							<li><a href="https://www.facebook.com/kuassp/" class="button fit">粉專</a></li>
 						</ul>
 					</div>
 				</section>

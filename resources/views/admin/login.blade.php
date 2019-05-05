@@ -2,7 +2,6 @@
 @section('content')
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 
 <style>
     #one {
@@ -18,8 +17,9 @@
     }
 
     #left {
-        flex: 3;
-        display: column;
+        flex: 2;
+        display: flex;
+        flex-direction: column;
         justify-content: space-between;
     }
 
@@ -44,6 +44,30 @@
 
     .content {
         color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content > form {
+        margin-left: 1em;
+    }
+
+    .row {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+    }
+
+    .row > h4 {
+        width: 150px;
+        line-height: 2em;
+        padding: 0;
+        margin: 0;
+    }
+
+    .row > input {
+        width: calc(100% - 150px);
     }
 
 </style>
@@ -51,26 +75,16 @@
 <section id="one">
 
     <div id="left">
-        <h1>{{ $issue->title }}</h1>
+        <h1>Admin Login</h1>
 
         <div class="content">
-            @php
-                echo $issue->describe;
-            @endphp
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
+                <div class="row"><h4>帳號：</h4><input type="text" name="user" required></div>
+                <div class="row"><h4>密碼：</h4><input type="password" name="password" required></div>
+                <input type="submit" value="Login" style="margin-top: 10px;"/>
+            </form>
         </div>
-
-        <h5>時間: {{ $issue->created_at }}</h5>
-
-        <div id="reply">
-            @foreach($issue->answer as $answer)
-                <div class="per-reply">
-                    @php
-                        echo $answer->reply;
-                    @endphp
-                </div>
-            @endforeach
-        </div>
-
     </div>
 
     <div id="right"></div>

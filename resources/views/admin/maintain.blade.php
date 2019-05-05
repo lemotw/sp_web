@@ -2,7 +2,6 @@
 @section('content')
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 
 <style>
 
@@ -53,6 +52,10 @@
         border-radius: 5px;
         display: block;
         background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .row:hover {
+        background-color: rgba(0, 0, 0, 0.2);
     }
 
     .row > h5 {
@@ -137,7 +140,7 @@
                 @endphp
                 <!-- repeat field -->
                 @foreach($issues as $issue)
-                    <a href="/issue/id/{{$issue->id}}"><div class="row"><h5>{{ $counter }}</h5> <p>{{ $issue->title }}</p></div></a>
+                    <a href="/admin/issue/id/{{$issue->id}}"><div class="row"><h5>{{ $counter }}</h5> <p>{{ $issue->title }}</p></div></a>
                     @php
                         $counter++;
                     @endphp
@@ -147,7 +150,7 @@
 
         <div id="right">
             <div id="function-bar">
-                <h4>議題檢索</h4>
+                <h4>議題維護</h4>
 
                 <div id="search">
                     <h1>搜尋</h1>

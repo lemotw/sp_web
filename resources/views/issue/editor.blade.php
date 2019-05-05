@@ -55,7 +55,7 @@
 
         <div class="row">
             <div class="col">
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control" name="title" required>
                 <hr>
             </div>
         </div>
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="row">
-            <textarea name="describe" id="describe"></textarea>
+            <textarea name="describe" id="describe" required></textarea>
         </div>
 
         <div class="row">
@@ -92,7 +92,11 @@
     <script>
         CKEDITOR.config.width = '100%';
         CKEDITOR.config.height= 400;
-        CKEDITOR.replace('describe');
+        var editor = CKEDITOR.replace('describe');
+        editor.on( 'required', function( evt ) {
+            editor.showNotification( 'This field is required.', 'warning' );
+            evt.cancel();
+        } );
     </script>
 
 </section>

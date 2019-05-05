@@ -8,5 +8,5 @@ class Member extends Model
 {
     protected $table = 'member';
     protected $dates = ['deleted_at'];
-    protected $fillable = [ 'name', 'img_link', 'describe' ];
+    protected $fillable = [ 'name', 'img_link', 'title' ];
 }

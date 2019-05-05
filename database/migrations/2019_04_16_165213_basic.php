@@ -16,10 +16,16 @@ class Basic extends Migration
         Schema::create('member', function(Blueprint $table){
             $table->increments('id');
             $table->string('name');
+            $table->string('title');
             $table->text('img_link');
-            $table->text('describe');
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::create('issue_list', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('issue_id');
+            $table->timestamps();
         });
     }
 

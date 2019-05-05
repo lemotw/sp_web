@@ -29,9 +29,12 @@
 											<li><a href="/">首頁</a></li>
 											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH">法規編定</a></li>
 											<li><a href="#">預算公佈</a></li>
-											<li><a href="/issue">議題追蹤系統</a></li>
-											<li><a href="elements.html">團隊成員</a></li>
-											<!-- <li><a href="#">Sign Up</a></li>
+											<li><a href="{{ route('show_all_issue') }}">議題追蹤系統</a></li>
+											<li><a href="{{ route('show_member') }}">團隊成員</a></li>
+											@if(Auth::check())
+											<li><a href="{{ route('show_admin_panel') }}">管理議題</a></li>
+											@endif
+										<!-- <li><a href="#">Sign Up</a></li>
 											<li><a href="#">Log In</a></li> -->
 										</ul>
 									</div>
@@ -47,13 +50,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-			<script src="{{ asset('assets/js/jquery.scrollex.min.js') }}"></script>
-			<script src="{{ asset('assets/js/jquery.scrolly.min.js') }}"></script>
-			<script src="{{ asset('assets/js/browser.min.js') }}"></script>
-			<script src="{{ asset('assets/js/breakpoints.min.js') }}"></script>
-			<script src="{{ asset('assets/js/util.js') }}"></script>
-			<script src="{{ asset('assets/js/main.js') }}"></script>
+		<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+		<script src="{{ asset('assets/js/jquery.scrollex.min.js') }}"></script>
+		<script src="{{ asset('assets/js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ asset('assets/js/browser.min.js') }}"></script>
+		<script src="{{ asset('assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ asset('assets/js/util.js') }}"></script>
+		<script src="{{ asset('assets/js/main.js') }}"></script>
 
 	</body>
 </html>
