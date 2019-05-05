@@ -8,6 +8,11 @@
 		<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 		<noscript><link rel="stylesheet" href="{{ asset('assets/css/noscript.css') }}" /></noscript>
 	</head>
+	<style>
+		body{
+			overflow: hidden;
+		}
+	</style>
 	<body class="landing is-preload">
 
 		<!-- Page Wrapper -->

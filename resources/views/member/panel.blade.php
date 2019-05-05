@@ -31,6 +31,7 @@
 
     #left {
         flex: 2;
+        height: 90%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -53,7 +54,7 @@
         height: 3em;
         margin: 2px;
         border-radius: 5px;
-        display: flex;
+        display: block;
         background-color: rgba(0, 0, 0, 0.4);
         align-items: center;
     }
