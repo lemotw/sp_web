@@ -39,7 +39,7 @@
 											<li><a href="{{ route('show_all_issue') }}">議題追蹤系統</a></li>
 											<li><a href="{{ route('show_member') }}">團隊成員</a></li>
 											@if(Auth::check())
-											<li><a href="{{ route('show_admin_panel') }}">管理議題</a></li>
+											<li><a href="{{ route('show_admin_panel') }}">網站後台</a></li>
 											@endif
 											<!-- <li><a href="#">Sign Up</a></li>
 											<li><a href="#">Log In</a></li> -->
