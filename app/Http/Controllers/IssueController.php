@@ -103,6 +103,10 @@ class IssueController extends Controller
                     $issue_list->issue_id = $issue->id;
                     $issue_list->save();
                 }
+            } else {
+                $issue_list = Issue_list::where('issue_id', $issue->id)->first();
+                $issue_list->issue_id = -1;
+                $issue_list->save();
             }
             //If panel select not 0, then update the issue order in home page.
 

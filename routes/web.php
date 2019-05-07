@@ -18,7 +18,8 @@ Route::get('/', function () {
     $issue_list = Issue_list::all();
     $issues = [];
     foreach($issue_list as $per)
-        array_push($issues, $per->issue()->first());
+        if($per->issue_id != -1)
+            array_push($issues, $per->issue()->first());
     //turn list to issue.
 
     return view('home')->with('issues', $issues);
