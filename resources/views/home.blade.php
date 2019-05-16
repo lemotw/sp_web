@@ -35,7 +35,7 @@
 										<ul>
 											<li><a href="/">首頁</a></li>
 											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH">法規編定</a></li>
-											<li><a href="#">預算公佈</a></li>
+											<li><a href="https://drive.google.com/drive/u/1/folders/1xlwveAZLA6WQ8eDrCoDRJanAiW0d0dlv?fbclid=IwAR3ZknGSfeec6VSOywmBOwTIr_o935u5k7Kd9R7KMtLaQRTzcg4IliM2_pI">預算公佈</a></li>
 											<li><a href="{{ route('show_all_issue') }}">議題追蹤系統</a></li>
 											<li><a href="{{ route('show_member') }}">團隊成員</a></li>
 											@if(Auth::check())
@@ -144,13 +144,13 @@
 					</section>
 					<section class="spotlight">
 						<div class="image"><img src="images/law.jpg" alt="" /></div><div class="content">
-							<h2>法規暨紀錄獎逞委員會</h2>
-							<p>現在的法規暨紀律獎懲委員會是由委別總召、兩位秘書以及顧問組成，主要負責學生自治組織的法規制定與修改，出席率的規範與統計，發現有學生議員有違法事宜時的懲戒案收證與懲罰。</p>
+							<h2>法規暨紀錄獎懲委員會</h2>
+							<p>現在的法規暨紀律獎懲委員會是由委別總召、兩位祕書以及顧問組成，主要負責學生自治組織的法規制定與修改，出席率的規範與統計，發現有學生議員有違法事宜時的懲戒案蒐證與懲罰。</p>
 						</div>
 					</section>
 					<section class="spotlight">
 						<div class="image"><img src="images/sec.jpg" alt="" /></div><div class="content">
-							<h2>秘書處</h2>
+							<h2>祕書處</h2>
 							<p>祕書處功用就如同一間企業的祕書部般，看似不重要卻絕對不能沒有的部別，它扮演處理大小事務的角色，例如：會議資料整理及輸出、文書收發、開會地點安排、...等，主要目的莫過於讓議會可以運作的更加順利，讓議會可以發揮最大功效。</p>
 						</div>
 					</section>
