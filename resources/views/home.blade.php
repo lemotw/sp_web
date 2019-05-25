@@ -144,7 +144,7 @@
 					</section>
 					<section class="spotlight">
 						<div class="image"><img src="images/law.jpg" alt="" /></div><div class="content">
-							<h2>法規暨紀錄獎懲委員會</h2>
+							<h2>法規暨紀律獎懲委員會</h2>
 							<p>現在的法規暨紀律獎懲委員會是由委別總召、兩位祕書以及顧問組成，主要負責學生自治組織的法規制定與修改，出席率的規範與統計，發現有學生議員有違法事宜時的懲戒案蒐證與懲罰。</p>
 						</div>
 					</section>
