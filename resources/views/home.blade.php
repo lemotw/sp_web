@@ -8,6 +8,16 @@
 		<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 	    <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
 		<noscript><link rel="stylesheet" href="{{ asset('assets/css/noscript.css') }}" /></noscript>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141147198-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-141147198-1');
+		</script>
+
 	</head>
 
 	<style>
