@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	<head>
-		<title>高科大學生議會</title>
+		<title>高科大 學生議會 （建工校區）</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/splogo.png') }}" />
@@ -44,8 +44,9 @@
 									<div id="menu">
 										<ul>
 											<li><a href="/">首頁</a></li>
-											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH">法規編定</a></li>
-											<li><a href="https://drive.google.com/drive/u/1/folders/1xlwveAZLA6WQ8eDrCoDRJanAiW0d0dlv?fbclid=IwAR3ZknGSfeec6VSOywmBOwTIr_o935u5k7Kd9R7KMtLaQRTzcg4IliM2_pI">預算公佈</a></li>
+											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH" target="_blank" rel="noopener noreferrer">法規編定</a></li>
+											<li><a href="https://drive.google.com/drive/u/1/folders/1xlwveAZLA6WQ8eDrCoDRJanAiW0d0dlv?fbclid=IwAR3ZknGSfeec6VSOywmBOwTIr_o935u5k7Kd9R7KMtLaQRTzcg4IliM2_pI" target="_blank" rel="noopener noreferrer">預算公佈</a></li>
+											<li><a href="https://drive.google.com/drive/folders/1eBAHx8Q1IvdY2mMpz2k_zWbud-4JyV4q?usp=sharing" target="_blank" rel="noopener noreferrer">會議資料公開</a></li>
 											<li><a href="{{ route('show_all_issue') }}">議題追蹤系統</a></li>
 											<li><a href="{{ route('show_member') }}">團隊成員</a></li>
 											@if(Auth::check())
@@ -65,7 +66,7 @@
 					<div class="inner">
 						<h2>
 							國立高雄科技大學<br/> 
-							學生議會<br>
+							學生議會（建工校區）<br>
 							<img style="width: 50px" src="images/image.png" alt="">
 						</h2>
 						<p>

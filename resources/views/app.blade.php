@@ -39,8 +39,9 @@
 									<div id="menu">
 										<ul>
 											<li><a href="/">首頁</a></li>
-											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH">法規編定</a></li>
-											<li><a href="https://drive.google.com/drive/u/1/folders/1xlwveAZLA6WQ8eDrCoDRJanAiW0d0dlv?fbclid=IwAR3ZknGSfeec6VSOywmBOwTIr_o935u5k7Kd9R7KMtLaQRTzcg4IliM2_pI">預算公佈</a></li>
+											<li><a href="https://drive.google.com/open?id=12lGM-A3cyeNIoHwIaVF41zQXyN-CH8FH" target="_blank" rel="noopener noreferrer">法規編定</a></li>
+											<li><a href="https://drive.google.com/drive/u/1/folders/1xlwveAZLA6WQ8eDrCoDRJanAiW0d0dlv?fbclid=IwAR3ZknGSfeec6VSOywmBOwTIr_o935u5k7Kd9R7KMtLaQRTzcg4IliM2_pI" target="_blank" rel="noopener noreferrer">預算公佈</a></li>
+											<li><a href="https://drive.google.com/drive/folders/1eBAHx8Q1IvdY2mMpz2k_zWbud-4JyV4q?usp=sharing" target="_blank" rel="noopener noreferrer">會議資料公開</a></li>
 											<li><a href="{{ route('show_all_issue') }}">議題追蹤系統</a></li>
 											<li><a href="{{ route('show_member') }}">團隊成員</a></li>
 											@if(Auth::check())
