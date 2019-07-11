@@ -75,4 +75,9 @@ Route::Group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::post('/member/add', 'MemberController@add_member')->name('add_member');
     Route::post('/member/update', 'MemberController@update_member')->name('update_member');
     Route::post('/member/delete', 'MemberController@delete_member')->name('delete_member');
+
+    Route::resource('links', 'LinksController')->except(['show', 'destroy']);
+    Route::post('links/delete', 'LinksController@delete_links')->name('links.delete');
 });
+
+Route::get('/links', 'LinksController@show_links')->name('links.show_links');

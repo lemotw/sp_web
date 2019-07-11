@@ -27,6 +27,15 @@ class Basic extends Migration
             $table->integer('issue_id');
             $table->timestamps();
         });
+
+        Schema::create('links', function(Blueprint $table) {
+            $table->increments('id');
+            $table->string('link_name');
+            $table->text('link');
+            $table->integer('sort');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -37,5 +46,7 @@ class Basic extends Migration
     public function down()
     {
         Schema::drop('member');
+        Schema::drop('issue_list');
+        Schema::drop('links');
     }
 }

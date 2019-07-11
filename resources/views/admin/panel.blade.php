@@ -29,8 +29,9 @@
     }
 
     .container > a {
-        width: 30%;
+        width: 25%;
         height:40%;
+        margin:20px;
         color: rgba(0, 0, 0, 0);
     }
 
@@ -73,6 +74,12 @@
         <a href="{{ route('show_member_panel') }}">
             <div class="panel">
                 <h4>成員管理</h4>
+            </div>
+        </a>
+
+        <a href="{{ route('links.index') }}">
+            <div class="panel">
+                <h4>連結管理</h4>
             </div>
         </a>
 
