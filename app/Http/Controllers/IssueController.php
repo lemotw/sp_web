@@ -15,7 +15,7 @@ class IssueController extends Controller
     //PERMISSION ANONYMOUS
 
     public function show_issues() {
-        $issues = Issue::all();
+        $issues = Issue::orderBy('id', 'DESC')->get();
         return view('issue.issues')->with('issues', $issues);
     }
 
@@ -51,16 +51,40 @@ class IssueController extends Controller
         if($request->input('title') == NULL || $request->input('describe') == NULL)
             return response('Null value.', 400);
 
-        $issue                  = new Issue;
-        $issue->title           = $request->input('title');
-        $issue->contact         = $request->input('contact');
-        $issue->describe        = $request->input('describe');
-        $issue->process_state   = 0;
-        $issue->save();
-        
-        if(Auth::check())
-            return redirect()->to('admin/');
-        return redirect('issue');
+        // Check Google Recaptcha
+        $ch = curl_init();
+        $secret_key = env("GOOGLE_RECAPTCHA_SECRET_KEY");
+        $captcha = $request->input('g-recaptcha-response');
+        curl_setopt_array($ch, [
+            CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => [
+                'secret' => $secret_key,
+                'response' => $captcha,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            ],
+            CURLOPT_RETURNTRANSFER => true
+        ]);
+
+        $output = curl_exec($ch);
+        curl_close($ch);
+        $json = json_decode($output);
+
+        if($json["success"]) {
+            // 驗證成功
+            $issue                  = new Issue;
+            $issue->title           = $request->input('title');
+            $issue->contact         = $request->input('contact');
+            $issue->describe        = $request->input('describe');
+            $issue->process_state   = 0;
+            $issue->save();
+            
+            if(Auth::check())
+                return redirect()->to('admin/');
+            return redirect('issue');
+        } else {
+            return back();
+        }
     }
 
     //NEXT PERMISSION ADMIN

@@ -25,7 +25,7 @@ class AdminController extends Controller
     }
 
     public function show_delete_panel() {
-        $issues = Issue::all();
+        $issues = Issue::orderBy('id', 'DESC')->get();
         return view('admin.delete')->with('issues', $issues);
     }
 

@@ -3,6 +3,19 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+	$(document).ready(function() {
+		$("form[id=contact-form]").submit(function(ev){
+			if(grecaptcha.getResponse() != "") {
+				return true;
+			}
+
+			alert('請認證！');
+			return false;
+		});
+	});
+</script>
 
 <style>
     #main-form{
@@ -80,6 +93,10 @@
         </div>
         <div class="row">
             <textarea name="describe" id="describe" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_PB') }}"></div>
         </div>
 
         <div class="row">
