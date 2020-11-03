@@ -16,6 +16,7 @@
 
 			gtag('config', 'UA-141147198-1');
 		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
 
 	</head>
 	<style>
@@ -63,6 +64,25 @@
 				@yield('content')
 
 			</div>
+
+			<script>
+			@if(Session::has('false'))
+				$.bootstrapGrowl("{{ Session::get('false') }}", {
+					type: 'danger',
+					align: 'center',
+					width: 'auto',
+					allow_dismiss: false
+				});
+			@endif
+
+			@if(Session::has('success'))
+			$.bootstrapGrowl("{{ Session::get('success') }}", {
+				type: 'success',
+				align: 'center',
+				width: 'auto',
+				allow_dismiss: false
+			});
+			@endif
 
 		<!-- Scripts -->
 		<script src="{{ asset('assets/js/jquery.min.js') }}"></script>

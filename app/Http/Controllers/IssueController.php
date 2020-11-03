@@ -70,7 +70,7 @@ class IssueController extends Controller
         curl_close($ch);
         $json = json_decode($output);
 
-        if($json["success"]) {
+        if($json->success) {
             // 驗證成功
             $issue                  = new Issue;
             $issue->title           = $request->input('title');
@@ -78,11 +78,13 @@ class IssueController extends Controller
             $issue->describe        = $request->input('describe');
             $issue->process_state   = 0;
             $issue->save();
-            
+
+            Session::flash('success', '新增成功!');
             if(Auth::check())
                 return redirect()->to('admin/');
             return redirect('issue');
         } else {
+            Session::flash('false', '新增失敗!');
             return back();
         }
     }
