@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Mail;
 use Session;
 use App\Issue;
 use App\IssueAnswer;
 use App\Issue_list;
+use App\Mail\MailIssue;
 
 class IssueController extends Controller
 {
@@ -79,6 +81,9 @@ class IssueController extends Controller
             $issue->describe        = $request->input('describe');
             $issue->process_state   = 0;
             $issue->save();
+
+            // 寄信這樣
+            Mail::to('nkustsrm@googlegroups.com', '高科學生議會')->queue(new MailIssue($issue));
 
             Session::flash('success', '新增成功!');
             if(Auth::check())
