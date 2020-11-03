@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Session;
 use App\Issue;
 use App\IssueAnswer;
 use App\Issue_list;

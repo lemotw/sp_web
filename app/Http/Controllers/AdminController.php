@@ -30,7 +30,7 @@ class AdminController extends Controller
     }
 
     public function show_maintain_panel() {
-        $issues = Issue::all();
+        $issues = Issue::orderBy('id', 'DESC')->get();
         return view('admin.maintain')->with('issues', $issues);
     }
 
